@@ -1,0 +1,48 @@
+# POST http://localhost:3000/signin 
+# Content-Type: application/json
+
+# {
+#     "fullname":"aditya",
+#      "email":"aditya2@gmail.com",
+#      "password":"123aA12"
+# }
+
+
+# GET http://localhost:3000/auth/get-upload-url
+# # GET http://localhost:3000/api/upload/get-upload-url
+
+
+# POST http://localhost:3000/auth/create-blog
+# Content-Type: application/json
+
+# {
+#     "blog-name":"This is a test blog"
+# }
+
+
+# Accesstoken-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjkwZDc5OTJjZWYzNjVjZmI2ZWM5ODIiLCJpYXQiOjE3MjA3Njg0MDl9.8lHeJPEEsykDbkZwx-I9A6KSwO8tvbDeUoHq65evm8M
+# POST http://localhost:3000/auth/signup
+# Content-Type: application/json
+
+# {
+#     "fullname":"jhon",
+#     "email":"adi@gmail.com",
+#     "password":"Aditya13191"
+# }
+
+
+ POST http://localhost:3000/auth/create-blog
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjkwZDc5OTJjZWYzNjVjZmI2ZWM5ODIiLCJpYXQiOjE3MjA3Njg0MDl9.8lHeJPEEsykDbkZwx-I9A6KSwO8tvbDeUoHq65evm8M
+
+{
+    "title":"test title",
+    "banner":"https://example.com/image-url",
+    "des":"This is a short des",
+    "content":{
+        "blocks":[1,2]
+    },
+    "tags":["tag1","tag2"]
+
+
+}
