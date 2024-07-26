@@ -4,6 +4,8 @@ import AnimationWrapper from "../common/page-animation";
 import { EditorContext } from "../pages/editor.pages";
 import Tag from "./tags.component";
 import axios from "axios";
+import { UserContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
 const PublishForm = () => {
   let characterLimit = 200;
@@ -14,6 +16,12 @@ const PublishForm = () => {
     setEditorState,
     setBlog,
   } = useContext(EditorContext);
+
+  let {
+    userAuth: { access_token },
+  } = useContext(UserContext);
+
+  let navigate = useNavigate();
 
   const handleBlogTitleChange = (e) => {
     let input = e.target;
@@ -75,15 +83,35 @@ const PublishForm = () => {
 
     e.target.classList.add("disable");
 
-    axios.post(import.meta.env.VITE_SERVER_DOMAIN + "/create-blog");
-
     let blogObj = {
       title,
       banner,
       des,
       content,
       tags,
+      draft: false,
     };
+    axios
+      .post(import.meta.env.VITE_SERVER_DOMAIN + "/create-blog", blogObj, {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      })
+      .then(() => {
+        e.target.classList.remove("disable");
+        toast.dismiss(loadingToast);
+        toast.success("Published 👍");
+
+        setTimeout(() => {
+          navigate("/");
+        }, 500);
+      })
+      .catch(({ response }) => {
+        e.target.classList.remove("disable");
+        toast.dismiss(loadingToast);
+
+        return toast.error(response.data.error);
+      });
   };
 
   return (
