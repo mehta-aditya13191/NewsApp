@@ -2,9 +2,9 @@
 # Content-Type: application/json
 
 # {
-#     "fullname":"aditya",
-#      "email":"aditya2@gmail.com",
-#      "password":"123aA12"
+#     "fullname":"santosh kumar",
+#      "email":"kumarsantosh01693@gmail.com",
+#      "password":"Santosh@123"
 # }
 
 
@@ -25,24 +25,35 @@
 # Content-Type: application/json
 
 # {
-#     "fullname":"jhon",
-#     "email":"adi@gmail.com",
-#     "password":"Aditya13191"
+#     "fullname":"santosh kumar",
+#     "email":"kumarsantosh01693@gmail.com",
+#     "password":"Santosh@123"
 # }
 
 
- POST http://localhost:3000/auth/create-blog
+ 
+ 
+#   POST http://localhost:3000/auth/create-blog
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjkwZDc5OTJjZWYzNjVjZmI2ZWM5ODIiLCJpYXQiOjE3MjA3Njg0MDl9.8lHeJPEEsykDbkZwx-I9A6KSwO8tvbDeUoHq65evm8M
+
+# {
+#     "title":"test title",
+#     "banner":"https://example.com/image-url",
+#     "des":"This is a short des",
+#     "content":{
+#         "blocks":[1,2]
+#     },
+#     "tags":["tag1","tag2"]
+# }
+
+
+# GET http://localhost:3000/auth/latest-blogs
+
+
+POST http://localhost:3000/auth/search-blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjkwZDc5OTJjZWYzNjVjZmI2ZWM5ODIiLCJpYXQiOjE3MjA3Njg0MDl9.8lHeJPEEsykDbkZwx-I9A6KSwO8tvbDeUoHq65evm8M
 
 {
-    "title":"test title",
-    "banner":"https://example.com/image-url",
-    "des":"This is a short des",
-    "content":{
-        "blocks":[1,2]
-    },
-    "tags":["tag1","tag2"]
-
-
+    "tag": "test"
 }
